@@ -75,11 +75,11 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="content">
         <nav class="navbar navbar-expand-md navbar-light nav-bg nav-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" target="_blank" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/common/images/logo.jpg') }}" alt="" class="img-responsive br-5">
+                    <img src="{{ asset('assets/common/images/logo.jpg') }}" alt="" class="img-responsive br-5" height="50">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

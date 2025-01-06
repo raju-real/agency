@@ -8,13 +8,13 @@
                     <div class="card-header">Admin Login</div>
 
                     <div class="card-body">
-                        @if (Session::has('message'))
+                        {{-- @if (Session::has('message'))
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <div class="alert-body">
                                     {{ Session::get('message') }}
                                 </div>
                             </div>
-                        @endif
+                        @endif --}}
                         <form method="POST" action="{{ route('admin-login') }}">
                             @csrf
 

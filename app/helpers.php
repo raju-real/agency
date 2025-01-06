@@ -3,7 +3,6 @@
 use App\Models\Article;
 use App\Models\Faq;
 use App\Models\Event;
-use App\Models\Gallery;
 use App\Models\EventPhoto;
 use App\Models\SliderView;
 use Illuminate\Support\Str;
@@ -322,38 +321,6 @@ if (!function_exists('eventCategories')) {
     }
 }
 
-if (! function_exists('sliderImagesOld')) {
-    function sliderImagesOld()
-    {
-
-        $events = EventPhoto::where('display_on_slider', 1)
-            ->select('title', 'photo_path', 'display_on_slider', 'event_id')
-            ->with('event:id,slug') // Load the event relationship and only the 'id' and 'slug' columns
-            ->get()
-            ->map(function ($item) {
-                $item->type = 'event';
-                $item->slug = $item->event->slug ?? null; // Add slug from the related Event model
-                return $item->only(['title', 'photo_path', 'type', 'slug']);
-            })->toArray();
-
-        $sliders = Gallery::where('display_on_slider', 1)
-            ->select('title', 'photo_path', 'display_on_slider')
-            ->get()
-            ->map(function ($item) {
-                $item->type = 'gallery';
-                return $item->only(['title', 'photo_path', 'type']);
-            })->toArray();
-
-        return collect(array_merge($events, $sliders));
-    }
-}
-
-if (! function_exists('sliderImages')) {
-    function sliderImages()
-    {
-        return SliderView::orderBy('updated_at','desc')->get();
-    }
-}
 
 if (! function_exists('upcommingEvents')) {
     function upcommingEvents()

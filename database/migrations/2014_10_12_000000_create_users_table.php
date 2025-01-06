@@ -30,7 +30,7 @@ return new class extends Migration
         $user = new User();
         $user->user_type = 'admin';
         $user->name = "Mr. Admin";
-        $user->email = 'admin@embassy.com';
+        $user->email = 'admin@agency.com';
         $user->mobile = '123456789';
         $user->password = Hash::make('123456');
         $user->save();
